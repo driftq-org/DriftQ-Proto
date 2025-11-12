@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package driftq.admin;
+
+option go_package = "github.com/BehnamAxo/driftq-proto/gen/go/driftq/admin;admin";
+
+message Topic {
+  string name = 1;
+  uint32 partitions = 2;
+  bool compacted = 3;
+}
+
+message CreateTopicRequest { Topic topic = 1; }
+message CreateTopicResponse { Topic topic = 1; }
+
+message ListTopicsRequest {}
+message ListTopicsResponse { repeated Topic topics = 1; }
+
+message ConsumerGroup {
+  string name = 1;
+  string topic = 2;
+  uint32 members = 3;
+  uint64 lag = 4;
+}
+
+message ListConsumerGroupsRequest { string topic = 1; }
+message ListConsumerGroupsResponse { repeated ConsumerGroup groups = 1; }
+
+service Admin {
+  rpc CreateTopic (CreateTopicRequest) returns (CreateTopicResponse);
+  rpc ListTopics (ListTopicsRequest) returns (ListTopicsResponse);
+  rpc ListConsumerGroups (ListConsumerGroupsRequest) returns (ListConsumerGroupsResponse);
+}

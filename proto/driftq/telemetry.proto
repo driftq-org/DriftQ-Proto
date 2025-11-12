@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package driftq.telemetry;
+
+option go_package = "github.com/BehnamAxo/driftq-proto/gen/go/driftq/telemetry;telemetry";
+
+message PartitionLag {
+  string topic = 1;
+  uint32 partition = 2;
+  uint64 lag = 3;
+}
+
+message Throughput {
+  string topic = 1;
+  double messages_per_sec = 2;
+  double bytes_per_sec = 3;
+}
+
+message ErrorRate {
+  string component = 1;  // => consumer group or broker node
+  double rate = 2;       // => This is for errors per sec
+}
+
+message TelemetryFrame {
+  int64 ts_unix_ms = 1;
+  repeated PartitionLag lags = 2;
+  repeated Throughput tput = 3;
+  repeated ErrorRate errors = 4;
+}
