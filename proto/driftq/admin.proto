@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package driftq.admin;
 
-option go_package = "github.com/BehnamAxo/driftq-proto/gen/go/driftq/admin;admin";
+option go_package = "github.com/driftq-org/driftq-proto/gen/go/driftq/admin;admin";
 
 message Topic {
   string name = 1;

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package driftq.telemetry;
 
-option go_package = "github.com/BehnamAxo/driftq-proto/gen/go/driftq/telemetry;telemetry";
+option go_package = "github.com/driftq-org/driftq-proto/gen/go/driftq/telemetry;telemetry";
 
 message PartitionLag {
   string topic = 1;

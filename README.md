@@ -65,7 +65,7 @@ gen/
 - Breaking changes increment the **minor** version (`v0.2.0`, etc.).
 - Consumers can pin a release by tag or buf module reference:
   ```
-  buf.build/behnamaxo/driftq-proto:v0.1.0
+  buf.build/driftq-org/driftq-proto:v0.1.0
   ```
 
 ---
